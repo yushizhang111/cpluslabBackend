@@ -1,0 +1,7 @@
+{
+    "extends": [
+        "keystone",
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ]
+}
