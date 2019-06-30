@@ -20,7 +20,7 @@ const Item = new keystone.List('Item', {
 Item.add({
 	name: { type: String, required: true },
 	chName: { type: String, label: '中文名' },
-	type: { type: String, ref: 'Type' },
+	type: { type: Types.Relationship, ref: 'Type' },
 	Image: { type: Types.CloudinaryImage, autoCleanup: true, select: true },
 	description: { type: Types.Html, wysiwyg: true, height: 400 },
 	size: { type: String, many: true },

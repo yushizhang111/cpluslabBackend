@@ -20,8 +20,8 @@ const Merchandise = new keystone.List('Merchandise', {
 Merchandise.add({
 	name: { type: String, required: true },
 	chName: { type: String, label: '中文名' },
-	item: { type: String, ref: 'Item' },
-	store: { type: String, ref: 'Store' },
+	item: { type: Types.Relationship, ref: 'Item' },
+	store: { type: Types.Relationship, ref: 'Store' },
 	merchandiseURL: { type: String },
 	batch: { type: String },
 	color: { type: String },
