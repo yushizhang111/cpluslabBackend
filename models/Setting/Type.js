@@ -24,10 +24,5 @@ Type.add({
 });
 
 Type.relationship({ ref: 'Item', refPath: 'name', path: 'item' });
-// City.relationship({ ref: 'University', refPath: 'location', path: 'university' });
-// City.relationship({ ref: 'Job', refPath: 'city', path: 'job' });
-// City.relationship({ ref: 'Order', refPath: 'city', path: 'order' });
-// City.relationship({ ref: 'Training', refPath: 'city', path: 'order' });
-// City.relationship({ ref: 'Meetup', refPath: 'city', path: 'meetup' });
 
 Type.register();

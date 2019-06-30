@@ -29,11 +29,6 @@ Item.add({
 	Video: { type: String },
 });
 
-// City.relationship({ ref: 'Tutor', refPath: 'city', path: 'tutor' });
-// City.relationship({ ref: 'University', refPath: 'location', path: 'university' });
-// City.relationship({ ref: 'Job', refPath: 'city', path: 'job' });
-// City.relationship({ ref: 'Order', refPath: 'city', path: 'order' });
-// City.relationship({ ref: 'Training', refPath: 'city', path: 'order' });
-// City.relationship({ ref: 'Meetup', refPath: 'city', path: 'meetup' });
+Item.relationship({ ref: 'Merchandise', refPath: 'item', path: 'merchandise' });
 
 Item.register();
