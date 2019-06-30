@@ -12,7 +12,6 @@ const OutcomingStock = new keystone.List('OutcomingStock', {
 		from: 'outId',
 		path: 'slug',
 		unique: true,
-
 	},
 	track: true,
 });
@@ -21,7 +20,11 @@ const OutcomingStock = new keystone.List('OutcomingStock', {
 
 OutcomingStock.add({
 	outId: { type: String, noedit: true, label: '出库ID (OutID)' },
-	merchandise: { type: Types.Relationship, ref: 'Merchandise', label: '商品ID (Merchandises ID)' },
+	merchandise: {
+		type: Types.Relationship,
+		ref: 'Merchandise',
+		label: '商品ID (Merchandises ID)',
+	},
 	amount: { type: Number, label: '数量 (Amount)' },
 	retailprice: { type: Number, label: '零售价（Retail Price)' },
 	shippingaddress: { type: String, label: '寄运地址 (Shipping Address)' },
@@ -30,7 +33,6 @@ OutcomingStock.add({
 	trackingId: { type: String, label: '跟踪单号 (Tracking ID)' },
 	shippingprice: { type: Number, label: '运费 (Shipping price)' },
 	outtime: { type: Types.Date, label: '出库时间 (Outstorage Time)' },
-
 });
 
 function generateID () {

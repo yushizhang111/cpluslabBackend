@@ -42,5 +42,10 @@ Merchandise.relationship({
 	refPath: 'merchandise',
 	path: 'incomingstock',
 });
+Merchandise.relationship({
+	ref: 'OutcomingStock',
+	refPath: 'merchandise',
+	path: 'outcomingstock',
+});
 
 Merchandise.register();
