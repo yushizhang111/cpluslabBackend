@@ -7,12 +7,13 @@ const Types = keystone.Field.Types;
  */
 
 const Workshop = new keystone.List('Workshop', {
+	map: { name: 'wId' },
 	autokey: {
 		from: 'wId',
 		path: 'slug',
 		unique: true,
-		sortable: true,
 	},
+	track: true,
 });
 
 //  Tutor.defaultColumns
@@ -59,6 +60,12 @@ Workshop.schema.pre('save', function (next) {
 	this.wId = generateID();
 	console.log(this.wId);
 	next();
+});
+
+Workshop.relationship({
+	ref: 'Session',
+	refPath: 'wId',
+	path: 'session',
 });
 
 Workshop.register();
