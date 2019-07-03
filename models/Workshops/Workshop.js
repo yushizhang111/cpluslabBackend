@@ -2,7 +2,7 @@ const keystone = require('keystone');
 const Types = keystone.Field.Types;
 
 /**
- * Merchandise Model
+ * Workshop Model
  * =============
  */
 
@@ -21,7 +21,11 @@ const Workshop = new keystone.List('Workshop', {
 Workshop.add({
 	wId: { type: String, noedit: true, label: '工作坊ID (Workshop ID)' },
 	name: { type: String, label: "工作坊名称 (Workshop's name)" },
-	type: { type: String, label: "工作坊类型 (Workshop's type)" },
+	type: {
+		type: Types.Relationship,
+		ref: 'Type',
+		label: "工作坊类型 (Workshop's type)",
+	},
 	brief: {
 		type: Types.Html,
 		wysiwyg: true,
@@ -52,13 +56,11 @@ Workshop.add({
 
 function generateID () {
 	const date = Date.now().toString();
-	console.log(date);
 	return 'WS' + date.slice(-6);
 }
 
 Workshop.schema.pre('save', function (next) {
 	this.wId = generateID();
-	console.log(this.wId);
 	next();
 });
 
